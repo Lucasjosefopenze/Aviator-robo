@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* [Estilos aqui são os mesmos que você enviou, sem alterações] */
+    /* Todos os estilos são os mesmos enviados anteriormente */
     body {
       margin: 0;
       padding: 0;
@@ -155,69 +155,6 @@
       color: #ffdd57;
       margin: 1rem 0;
     }
-
-    .btn-copy {
-      background: #00bfff;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-size: 0.95rem;
-      border-radius: 8px;
-      margin-left: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .btn-copy:hover {
-      background: #0099cc;
-    }
-
-    .btn-whatsapp {
-      display: inline-block;
-      margin-top: 1.5rem;
-      background-color: #25D366;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      box-shadow: 0 0 10px #25D366;
-    }
-
-    .btn-ussd {
-      display: inline-block;
-      margin-top: 1.2rem;
-      background-color: #007bff;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      box-shadow: 0 0 10px #007bff;
-    }
-
-    .btn-voltar {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #6c757d;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px #333;
-    }
-
-    #copyMsg {
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #90ee90;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 0.5rem;
-      border-radius: 6px;
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -228,7 +165,6 @@
 
   <main class="container">
 
-    <!-- Etapas principais -->
     <div id="conteudoPrincipal">
       <article id="etapa1" class="fade-in">
         <h1> ROBÔ AVIATOR</h1>
@@ -250,35 +186,27 @@
         <div class="selo-pro">PRÓ</div>
         <img src="https://i.postimg.cc/7hY7Q83T/Picsart-25-02-17-16-18-15-030.jpg" alt="Robô Aviator Lucrativo">
         <h2>💎 ROBÔ AVIATOR LUCRATIVO</h2>
-        <p>permite hackear o aviator com 100% de acertividade,mostrando onde o avião vai cair. Tenha acesso ao nosso bot mais avançado e exclusivo!</p>
-        <p class="preco">Apenas 550Mt</p>
-        <button class="botao-destaque glow-blue" onclick="abrirPagamento()">COMPAR AGORA</button>
+        <p>Permite hackear o aviator com 100% de acertividade. Tenha acesso ao nosso bot mais avançado e exclusivo!</p>
+        <p class="preco">Apenas 500Mt</p>
+        <button class="botao-destaque glow-blue" onclick="abrirPagamento()">COMPRAR AGORA</button>
       </article>
     </div>
 
-    <!-- Pagamento M-Pesa -->
+    <!-- Pagamento -->
     <div id="pagamento" class="fade-in">
       <a class="btn-voltar" onclick="voltar()">⬅️ Voltar</a>
-      <h2>Pagamento M-Pesa</h2>
-      <p>Para adquirir o <strong>ROBÔ AVIATOR LUCRATIVO</strong>, siga os passos abaixo:</p>
+      <h2>Pagamento do Robô</h2>
+      <p>O acesso ao <strong>ROBÔ AVIATOR LUCRATIVO</strong> custa apenas:</p>
+      <div class="numero">500Mt</div>
+      <p>Após o pagamento, você poderá receber o app diretamente por email.</p>
 
-      <p><strong>1️⃣ Envie o valor de:</strong></p>
-      <div class="numero">550Mt</div>
+      <button class="botao-destaque pulse" onclick="pagarAgora()">💳 PAGAR AGORA</button>
 
-      <p><strong>2️⃣ Para o número:</strong></p>
-      <div class="numero">
-        <span id="mpesa">848750886</span>
-        <button class="btn-copy" onclick="copiarNumero()">📋 Copiar número</button>
+      <div id="btnReceberAppContainer" class="hidden" style="margin-top: 2rem;">
+        <a class="botao-destaque glow-blue" id="btnReceberApp" href="mailto:roboaviatorlucrativo@gmail.com?subject=Pagamento%20Conclu%C3%ADdo%20-%20Receber%20Rob%C3%B4%20Aviator&body=Ol%C3%A1%2C%20efetuei%20o%20pagamento%20de%20500Mt.%20Por%20favor%2C%20envie-me%20o%20Rob%C3%B4%20Aviator%20Lucrativo." target="_blank">
+          📥 RECEBER MEU APLICATIVO
+        </a>
       </div>
-      <div id="copyMsg">✅ Número copiado com sucesso!</div>
-
-      <p><strong>3️⃣ Pagar diretamente via M-Pesa:</strong></p>
-      <a href="tel:*150#" class="btn-ussd">📞 Abrir M-Pesa (*150#)</a>
-
-      <p><strong>4️⃣ Após o pagamento:</strong><br> Envie o comprovativo clicando abaixo:</p>
-      <a class="btn-whatsapp" href="https://wa.me/258848750886?text=Olá,+já+efetuei+o+pagamento+de+550Mt+via+M-Pesa,+segue+em+anexo+o+comprovativo." target="_blank">
-        📤 Enviar comprovativo via WhatsApp
-      </a>
     </div>
 
   </main>
@@ -336,7 +264,7 @@
 
     document.getElementById("btnDownload").addEventListener("click", () => {
       if (!document.getElementById("btnDownload").disabled) {
-        window.open("https://www.mediafire.com/file/kkcjetnu93d5n8l/BOT_AVIATOR.apk/file", "_blank");
+        window.open("https://www.mediafire.com/file/i2kiw5qfn5h4jxp/ROB%C3%94_AVIATOR.apk/file", "_blank");
       }
     });
 
@@ -354,13 +282,13 @@
       window.scrollTo(0, 0);
     }
 
-    function copiarNumero() {
-      const texto = "848750886";
-      navigator.clipboard.writeText(texto).then(() => {
-        const msg = document.getElementById("copyMsg");
-        msg.style.display = "block";
-        setTimeout(() => msg.style.display = "none", 3000);
-      });
+    function pagarAgora() {
+      window.open("https://prod-9sbbx2n68lcr-1750998239182.trickle.host/?payment=1751016581238000", "_blank");
+
+      setTimeout(() => {
+        document.getElementById("btnReceberAppContainer").classList.remove("hidden");
+        document.getElementById("btnReceberAppContainer").scrollIntoView({ behavior: "smooth" });
+      }, 15000);
     }
   </script>
 
