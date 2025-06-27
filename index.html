@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* Todos os estilos são os mesmos enviados anteriormente */
     body {
       margin: 0;
       padding: 0;
@@ -176,9 +175,9 @@
 
       <article id="etapa2" class="fade-in hidden">
         <h2>🔑 Registro Necessário</h2>
-        <p>Para baixar o BOT AVIATOR, você deve se registrar na plataforma oficial onde o bot funciona, apòs o seu receba bonôs de boas vindas para começar.</p>
+        <p>Para baixar o BOT AVIATOR, você deve se registrar na plataforma oficial onde o bot funciona.</p>
         <button class="botao-destaque pulse" id="btnRegistrar" onclick="registrar()">Registrar Conta Oficial</button>
-        <p id="mensagem" class="hidden">⏳ Aguarde 40 segundos verificando o registro para liberar o botão e conteúdo exclusivo...</p>
+        <p id="mensagem" class="hidden">⏳ Aguarde 20 segundos verificando o registro para liberar o botão e conteúdo exclusivo...</p>
         <button id="btnDownload" class="botao-destaque pulse" disabled>📥 BAIXAR BOT</button>
       </article>
 
@@ -198,14 +197,16 @@
       <h2>Pagamento do Robô</h2>
       <p>O acesso ao <strong>ROBÔ AVIATOR LUCRATIVO</strong> custa apenas:</p>
       <div class="numero">500Mt</div>
-      <p>Após o pagamento, você poderá receber o app diretamente por email.</p>
+      <p>Após o pagamento, você deverá <strong>enviar o comprovativo</strong> para receber o aplicativo.</p>
 
       <button class="botao-destaque pulse" onclick="pagarAgora()">💳 PAGAR AGORA</button>
 
       <div id="btnReceberAppContainer" class="hidden" style="margin-top: 2rem;">
-        <a class="botao-destaque glow-blue" id="btnReceberApp" href="mailto:roboaviatorlucrativo@gmail.com?subject=Pagamento%20Conclu%C3%ADdo%20-%20Receber%20Rob%C3%B4%20Aviator&body=Ol%C3%A1%2C%20efetuei%20o%20pagamento%20de%20500Mt.%20Por%20favor%2C%20envie-me%20o%20Rob%C3%B4%20Aviator%20Lucrativo." target="_blank">
-          📥 RECEBER MEU APLICATIVO
-        </a>
+        <a class="botao-destaque glow-blue" id="btnEnviarComprovativo"
+           href="mailto:roboaviatorlucrativo@gmail.com?subject=Pagamento%20Conclu%C3%ADdo%20-%20Enviar%20Comprovativo&body=Ol%C3%A1%2C%20efetuei%20o%20pagamento%20de%20500Mt.%20Segue%20em%20anexo%20o%20comprovativo.%20Aguardo%20o%20envio%20do%20Rob%C3%B4%20Aviator."
+           target="_blank">📤 ENVIAR COMPROVATIVO</a>
+
+        <button class="botao-destaque" style="margin-top:1rem;" onclick="baixarApp()">📥 BAIXAR APLICATIVO</button>
       </div>
     </div>
 
@@ -259,7 +260,7 @@
         msg.classList.add("hidden");
         botPremium.classList.remove("hidden");
         botPremium.scrollIntoView({ behavior: 'smooth' });
-      }, 40000);
+      }, 20000);
     }
 
     document.getElementById("btnDownload").addEventListener("click", () => {
@@ -289,6 +290,10 @@
         document.getElementById("btnReceberAppContainer").classList.remove("hidden");
         document.getElementById("btnReceberAppContainer").scrollIntoView({ behavior: "smooth" });
       }, 15000);
+    }
+
+    function baixarApp() {
+      window.open("https://www.mediafire.com/file/i2kiw5qfn5h4jxp/ROB%C3%94_AVIATOR.apk/file", "_blank");
     }
   </script>
 
