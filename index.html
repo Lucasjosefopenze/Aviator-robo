@@ -186,7 +186,7 @@
         <img src="https://i.postimg.cc/7hY7Q83T/Picsart-25-02-17-16-18-15-030.jpg" alt="Robô Aviator Lucrativo">
         <h2>💎 ROBÔ AVIATOR LUCRATIVO</h2>
         <p>Permite hackear o aviator com 100% de acertividade. Tenha acesso ao nosso bot mais avançado e exclusivo!</p>
-        <p class="preco">Apenas 500Mt</p>
+        <p class="preco">Apenas 500Mt via M-Pesa</p>
         <button class="botao-destaque glow-blue" onclick="abrirPagamento()">COMPRAR AGORA</button>
       </article>
     </div>
@@ -194,22 +194,19 @@
     <!-- Pagamento -->
     <div id="pagamento" class="fade-in">
       <a class="btn-voltar" onclick="voltar()">⬅️ Voltar</a>
-      <h2>Pagamento do Robô</h2>
-      <p>O acesso ao <strong>ROBÔ AVIATOR LUCRATIVO</strong> custa apenas:</p>
+      <h2>Pagamento via M-Pesa</h2>
+      <p>O acesso ao <strong>ROBÔ AVIATOR LUCRATIVO</strong> custa:</p>
       <div class="numero">500Mt</div>
-      <p>Após o pagamento, você deverá <strong>enviar o comprovativo</strong> para receber o aplicativo.</p>
+      <p>Efetue o pagamento via M-Pesa utilizando o botão abaixo:</p>
 
-      <button class="botao-destaque pulse" onclick="pagarAgora()">💳 PAGAR AGORA</button>
+      <button class="botao-destaque pulse" onclick="pagarAgora()">💳 PAGAR AGORA (via M-Pesa)</button>
 
       <div id="btnReceberAppContainer" class="hidden" style="margin-top: 2rem;">
         <a class="botao-destaque glow-blue" id="btnEnviarComprovativo"
-           href="mailto:roboaviatorlucrativo@gmail.com?subject=Pagamento%20Conclu%C3%ADdo%20-%20Enviar%20Comprovativo&body=Ol%C3%A1%2C%20efetuei%20o%20pagamento%20de%20500Mt.%20Segue%20em%20anexo%20o%20comprovativo.%20Aguardo%20o%20envio%20do%20Rob%C3%B4%20Aviator."
-           target="_blank">📤 ENVIAR COMPROVATIVO</a>
-
-        <button class="botao-destaque" style="margin-top:1rem;" onclick="baixarApp()">📥 BAIXAR APLICATIVO</button>
+          href="mailto:roboaviatorlucrativo@gmail.com?subject=Pagamento%20Conclu%C3%ADdo%20-%20Enviar%20Comprovativo&body=Ol%C3%A1%2C%20efetuei%20o%20pagamento%20via%20M-Pesa%20de%20500Mt.%20Segue%20em%20anexo%20o%20comprovativo.%20Aguardo%20o%20envio%20do%20Rob%C3%B4%20Aviator."
+          target="_blank">📤 ENVIAR COMPROVATIVO</a>
       </div>
     </div>
-
   </main>
 
   <script>
@@ -291,11 +288,6 @@
         document.getElementById("btnReceberAppContainer").scrollIntoView({ behavior: "smooth" });
       }, 15000);
     }
-
-    function baixarApp() {
-      window.open("https://www.mediafire.com/file/i2kiw5qfn5h4jxp/ROB%C3%94_AVIATOR.apk/file", "_blank");
-    }
   </script>
-
 </body>
 </html>
