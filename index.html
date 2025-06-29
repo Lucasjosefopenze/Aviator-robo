@@ -142,151 +142,137 @@
   </style>
 </head>
 <body>
+  <header>
+    <img src="https://i.postimg.cc/rwg7m6zr/20250618-234348.png" alt="Capa Robô Aviator">
+  </header>
+  <main class="container bento-layout">
+    <section class="bento-left">
+      <article id="etapa1" class="fade-in bloco">
+        <h1>ROBÔ AVIATOR</h1>
+        <p>Ganhe vantagem no jogo Aviator com nosso bot avançado baixa o seu aplicativo em alguns clique, para começar entra no nosso grupo oficial...</p>
+        <button id="btnGrupoVIP" class="botao-destaque pulse" onclick="startCountdown()">👥 Entrar no Grupo VIP</button>
+        <p id="countdownText">Você precisa entrar no grupo para liberar o seu acesso: <span id="counter">10</span>s</p>
+        <button id="btnContinuar" class="botao-destaque" disabled>➡️ BAIXAR BOT</button>
+      </article>
+      <article id="etapa2" class="fade-in hidden bloco">
+        <h2>Registro Necessário</h2>
+        <p>Para baixar o BOT AVIATOR, você deve se registrar na plataforma oficial onde o bot funciona...</p>
+        <button id="btnRegistrar" class="botao-destaque" disabled>Registrar Conta Oficial</button>
+        <p id="mensagem" class="hidden">⏳ Aguarde 20 segundos...</p>
+        <button id="btnDownload" class="botao-destaque" disabled>📥 BAIXAR BOT</button>
+      </article>
+    </section>
+    <section class="bento-right">
+      <article id="botPremium" class="fade-in premium hidden bloco">
+        <div class="selo-pro">PRÓ</div>
+        <img src="https://i.postimg.cc/7hY7Q83T/Picsart-25-02-17-16-18-15-030.jpg" alt="Robô Aviator Lucrativo">
+        <h2>💎 ROBÔ AVIATOR LUCRATIVO</h2>
+        <p>Permite hackear o aviator com 100% de acerto,descubra onde o avião vai cair...</p>
+        <p class="preco">Apenas 500Mt via M‑Pesa</p>
+        <button id="copiarBtn" class="botao-destaque hidden" onclick="copiarNumero()">📋 Copiar número de pagamento</button>
+        <p class="msg-copiado" id="copiadoMsg">Número copiado com sucesso ✅</p>
+        <a id="pagarAgoraBtn" class="botao-destaque pulse glow hidden" href="tel:*150%23">💳 PAGAR AGORA (via M‑Pesa)</a>
+        <button id="btnEnviarComprovativo" class="botao-destaque hidden">📤 ENVIAR COMPROVATIVO</button>
+        <p id="msgAguardarWhatsapp" class="hidden">⏳ Aguarde <span id="contadorWhatsapp">20</span>s para falar no WhatsApp...</p>
+        <a id="btnWhatsapp" class="botao-destaque hidden" href="https://wa.me/258863945037?text=Olá,%20estou%20a%20enviar%20o%20comprovativo%20do%20pagamento.%20(Por%20favor%20colar%20aqui%20o%20comprovativo)" target="_blank">💬 FALAR NO WHATSAPP</a>
+      </article>
+    </section>
+  </main>
+  <script>
+    let segundos = 10;
+    let clicouGrupo = false;
+    const btn = document.getElementById("btnContinuar");
+    const cnt = document.getElementById("counter");
+    const progressBar = document.createElement("progress");
+    progressBar.id = "progressBar";
+    progressBar.max = segundos;
+    progressBar.value = segundos;
+    progressBar.style.width = "100%";
+    progressBar.style.marginTop = "1rem";
+    document.getElementById("countdownText").after(progressBar);
 
-<header>
-  <img src="https://i.postimg.cc/rwg7m6zr/20250618-234348.png" alt="Capa Robô Aviator">
-</header>
+    const intervalo = setInterval(() => {
+      segundos--;
+      cnt.textContent = segundos;
+      progressBar.value = segundos;
+      if (segundos <= 0) {
+        clearInterval(intervalo);
+        btn.disabled = false;
+      }
+    }, 1000);
 
-<main class="container bento-layout">
-  <!-- Esquerda: Etapas 1 e 2 -->
-  <section class="bento-left">
-    <article id="etapa1" class="fade-in bloco">
-      <h1>ROBÔ AVIATOR</h1>
-      <p>Ganhe vantagem no jogo Aviator com nosso bot avançado baixa o seu aplicativo em alguns clique, para começar entra no nosso grupo oficial...</p>
-      <button id="btnGrupoVIP" class="botao-destaque pulse" onclick="startCountdown()">👥 Entrar no Grupo VIP</button>
-      <p id="countdownText">Você precisa entrar no grupo para liberar o seu acesso: <span id="counter">10</span>s</p>
-      <button id="btnContinuar" class="botao-destaque" disabled>➡️ BAIXAR BOT</button>
-    </article>
-
-    <article id="etapa2" class="fade-in hidden bloco">
-      <h2>Registro Necessário</h2>
-      <p>Para baixar o BOT AVIATOR, você deve se registrar na plataforma oficial onde o bot funciona...</p>
-      <button id="btnRegistrar" class="botao-destaque" disabled>Registrar Conta Oficial</button>
-      <p id="mensagem" class="hidden">⏳ Aguarde 20 segundos...</p>
-      <button id="btnDownload" class="botao-destaque" disabled>📥 BAIXAR BOT</button>
-    </article>
-  </section>
-
-  <!-- Direita: Premium -->
-  <section class="bento-right">
-    <article id="botPremium" class="fade-in premium hidden bloco">
-      <div class="selo-pro">PRÓ</div>
-      <img src="https://i.postimg.cc/7hY7Q83T/Picsart-25-02-17-16-18-15-030.jpg" alt="Robô Aviator Lucrativo">
-      <h2>💎 ROBÔ AVIATOR LUCRATIVO</h2>
-      <p>Permite hackear o aviator com 100% de acerto,discubra onde o avião vai cair...</p>
-      <p class="preco">Apenas 500Mt via M‑Pesa</p>
-
-      <button id="copiarBtn" class="botao-destaque hidden" onclick="copiarNumero()">📋 Copiar número de pagamento</button>
-      <p class="msg-copiado" id="copiadoMsg">Número copiado com sucesso ✅</p>
-
-      <a id="pagarAgoraBtn" class="botao-destaque pulse glow hidden" href="tel:*150%23">💳 PAGAR AGORA (via M‑Pesa)</a>
-
-      <button id="btnEnviarComprovativo" class="botao-destaque hidden">📤 ENVIAR COMPROVATIVO</button>
-
-      <p id="msgAguardarWhatsapp" class="hidden">⏳ Aguarde <span id="contadorWhatsapp">20</span>s para falar no WhatsApp...</p>
-      <a id="btnWhatsapp" class="botao-destaque hidden"
-         href="https://wa.me/258863945037?text=Olá,%20estou%20a%20enviar%20o%20comprovativo%20do%20pagamento.%20(Por%20favor%20colar%20aqui%20o%20comprovativo)"
-         target="_blank">💬 FALAR NO WHATSAPP</a>
-    </article>
-  </section>
-</main>
-
-<script>
-// Etapa 1: Entrar no Grupo VIP
-let segundos = 10;
-function startCountdown(){
-  const btn = document.getElementById("btnContinuar");
-  const cnt = document.getElementById("counter");
-  window.open("https://abre.ai/grupo7-aviator","_blank");
-  const iv = setInterval(() => {
-    segundos--;
-    cnt.textContent = segundos;
-    if(segundos <= 0){
-      clearInterval(iv);
-      btn.disabled = false;
+    function startCountdown(){
+      clicouGrupo = true;
+      window.open("https://abre.ai/grupo7-aviator","_blank");
     }
-  }, 1000);
-}
-document.getElementById("btnContinuar").addEventListener("click", () => {
-  document.getElementById("etapa1").classList.add("hidden");
-  document.getElementById("etapa2").classList.remove("hidden");
-  const btnReg = document.getElementById("btnRegistrar");
-  btnReg.disabled = false;
-  btnReg.classList.add("pulse");
-});
 
-// Etapa 2: Registrar conta
-document.getElementById("btnRegistrar").addEventListener("click", () => {
-  const btnReg = document.getElementById("btnRegistrar");
-  const msg = document.getElementById("mensagem");
-  const btnDownload = document.getElementById("btnDownload");
-  window.open("https://www.megagamelive.com/affiliates/?btag=2233419","_blank");
-  btnReg.classList.remove("pulse");
-  msg.classList.remove("hidden");
-  setTimeout(() => {
-    msg.classList.add("hidden");
-    btnDownload.disabled = false;
-    btnDownload.classList.add("pulse");
-  }, 20000);
-});
+    btn.addEventListener("click", () => {
+      document.getElementById("etapa1").classList.add("hidden");
+      document.getElementById("etapa2").classList.remove("hidden");
+      const btnReg = document.getElementById("btnRegistrar");
+      btnReg.disabled = false;
+      btnReg.classList.add("pulse");
+    });
 
-// Download e liberação Premium
-document.getElementById("btnDownload").addEventListener("click", () => {
-  window.open("https://www.mediafire.com/file/i2kiw5qfn5h4jxp/ROB%C3%94_AVIATOR.apk/file","_blank");
-  const premium = document.getElementById("botPremium");
-  const copiar = document.getElementById("copiarBtn");
-  const pagar = document.getElementById("pagarAgoraBtn");
-  premium.classList.remove("hidden");
-  copiar.classList.remove("hidden");
-  pagar.classList.remove("hidden");
-});
+    document.getElementById("btnRegistrar").addEventListener("click", () => {
+      const btnReg = document.getElementById("btnRegistrar");
+      const msg = document.getElementById("mensagem");
+      const btnDownload = document.getElementById("btnDownload");
+      window.open("https://www.megagamelive.com/affiliates/?btag=2233419","_blank");
+      btnReg.classList.remove("pulse");
+      msg.classList.remove("hidden");
+      setTimeout(() => {
+        msg.classList.add("hidden");
+        btnDownload.disabled = false;
+        btnDownload.classList.add("pulse");
+      }, 20000);
+    });
 
-// Copiar número
-function copiarNumero(){
-  const numero = "848750886";
-  navigator.clipboard.writeText(numero).then(()=>{
-    document.getElementById("copiadoMsg").style.display="block";
-    setTimeout(()=>document.getElementById("copiadoMsg").style.display="none", 3000);
-  });
-}
+    document.getElementById("btnDownload").addEventListener("click", () => {
+      window.open("https://www.mediafire.com/file/i2kiw5qfn5h4jxp/ROB%C3%94_AVIATOR.apk/file","_blank");
+      document.getElementById("botPremium").classList.remove("hidden");
+      document.getElementById("copiarBtn").classList.remove("hidden");
+      document.getElementById("pagarAgoraBtn").classList.remove("hidden");
+    });
 
-// Fluxo Premium: Pagar Agora → Enviar Comprovativo → WhatsApp
-document.getElementById("pagarAgoraBtn").addEventListener("click", () => {
-  const pagar = document.getElementById("pagarAgoraBtn");
-  const enviar = document.getElementById("btnEnviarComprovativo");
-  // remover animações
-  pagar.classList.remove("pulse", "glow");
-
-  // liberar envio após 15s
-  setTimeout(() => {
-    enviar.classList.remove("hidden");
-    enviar.classList.add("pulse");
-  }, 15000);
-});
-
-document.getElementById("btnEnviarComprovativo").addEventListener("click", () => {
-  const enviar = document.getElementById("btnEnviarComprovativo");
-  const msgW = document.getElementById("msgAguardarWhatsapp");
-  const contW = document.getElementById("contadorWhatsapp");
-  const btnW = document.getElementById("btnWhatsapp");
-
-  enviar.classList.add("hidden");
-  let seg = 20;
-  contW.textContent = seg;
-  msgW.classList.remove("hidden");
-
-  const iv = setInterval(() => {
-    seg--;
-    contW.textContent = seg;
-    if(seg <= 0){
-      clearInterval(iv);
-      msgW.classList.add("hidden");
-      btnW.classList.remove("hidden");
-      btnW.classList.add("pulse", "glow");
+    function copiarNumero(){
+      navigator.clipboard.writeText("848750886").then(()=>{
+        const msg = document.getElementById("copiadoMsg");
+        msg.style.display="block";
+        setTimeout(()=> msg.style.display="none", 3000);
+      });
     }
-  }, 1000);
-});
-</script>
 
+    document.getElementById("pagarAgoraBtn").addEventListener("click", () => {
+      const pagar = document.getElementById("pagarAgoraBtn");
+      const enviar = document.getElementById("btnEnviarComprovativo");
+      pagar.classList.remove("pulse", "glow");
+      setTimeout(() => {
+        enviar.classList.remove("hidden");
+        enviar.classList.add("pulse");
+      }, 15000);
+    });
+
+    document.getElementById("btnEnviarComprovativo").addEventListener("click", () => {
+      const enviar = document.getElementById("btnEnviarComprovativo");
+      const msgW = document.getElementById("msgAguardarWhatsapp");
+      const contW = document.getElementById("contadorWhatsapp");
+      const btnW = document.getElementById("btnWhatsapp");
+      enviar.classList.add("hidden");
+      let seg = 20;
+      contW.textContent = seg;
+      msgW.classList.remove("hidden");
+      const iv = setInterval(() => {
+        seg--;
+        contW.textContent = seg;
+        if (seg <= 0) {
+          clearInterval(iv);
+          msgW.classList.add("hidden");
+          btnW.classList.remove("hidden");
+          btnW.classList.add("pulse", "glow");
+        }
+      }, 1000);
+    });
+  </script>
 </body>
 </html>
