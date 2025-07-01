@@ -1,278 +1,47 @@
+
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Robô AVIATOR</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robô Aviator - Início</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --bg-main: #121212;
-      --bg-bloco: rgba(255,255,255,0.06);
-      --accent: #ff416c;
-      --accent-2: #00ffc3;
-      --text-light: #e0e0e0;
-      --title-color: #ffffff;
-      --gold: #ffd700;
-    }
     body {
-      background: var(--bg-main);
-      color: var(--text-light);
-      font-family: 'Poppins', sans-serif;
-      margin: 0; padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      animation: flashBg 1.5s infinite alternate;
     }
-    header img {
-      width: 100%; max-height: 250px; object-fit: cover;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    @keyframes flashBg {
+      0% { background-color: #1e3a8a; }
+      100% { background-color: #9333ea; }
     }
-    .container.bento-layout {
-      max-width: 1000px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 2rem;
-      width: 100%;
-    }
-    .bento-left, .bento-right {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    @media (max-width:768px){
-      .container.bento-layout { grid-template-columns: 1fr; }
-    }
-    .bloco {
-      background: var(--bg-bloco);
-      border-radius: 16px;
-      padding: 2rem;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      position: relative;
-    }
-    h1,h2 { text-align: center; color: var(--title-color); }
-    p { text-align: center; color: var(--text-light); }
-    .botao-destaque {
-      display: block;
-      width: 100%;
-      padding: 1rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(90deg, var(--accent), #ff4b2b);
-      color: white;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease;
-      text-decoration: none;
-      text-align: center;
-    }
-    .botao-destaque:disabled {
-      background: #777;
-      cursor: not-allowed;
-    }
-    .botao-destaque:hover:not(:disabled) {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px var(--accent);
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.08); opacity: 0.8; }
     }
     .pulse {
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255,65,108,0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(255,65,108,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,65,108,0); }
-    }
-    .glow {
-      animation: glow 1s infinite alternate;
-    }
-    @keyframes glow {
-      from { box-shadow: 0 0 10px var(--accent-2); }
-      to { box-shadow: 0 0 20px var(--accent-2); }
-    }
-    .premium {
-      background: linear-gradient(135deg,#3a1c71,#d76d77,#ffaf7b);
-      border: 2px solid var(--gold);
-    }
-    .premium img {
-      width: 100%;
-      border-radius: 15px;
-      margin-bottom: 1rem;
-    }
-    .selo-pro {
-      position: absolute; top: -10px; right: -10px;
-      background: var(--gold); color: #000;
-      font-weight: bold; padding: 5px 10px;
-      border-radius: 8px; font-size: .9rem;
-      box-shadow: 0 0 8px #000;
-    }
-    .preco {
-      text-align: center;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--accent-2);
-    }
-    #countdownText {
-      text-align: center;
-      margin-top: .5rem;
-      font-weight: 600; color: #ffcccb;
-    }
-    .fade-in {
-      animation: fadeIn 1s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hidden { display: none; }
-    .msg-copiado {
-      color: #00ffae;
-      text-align: center;
-      font-size: .95rem;
-      margin-top: .5rem;
-      display: none;
+      animation: pulseBtn 1.5s infinite;
     }
   </style>
 </head>
-<body>
-  <header>
-    <img src="https://i.postimg.cc/rwg7m6zr/20250618-234348.png" alt="Capa Robô Aviator">
-  </header>
-  <main class="container bento-layout">
-    <section class="bento-left">
-      <article id="etapa1" class="fade-in bloco">
-        <h1>ROBÔ AVIATOR</h1>
-        <p>Ganhe vantagem no jogo Aviator com nosso bot avançado baixa o seu aplicativo em alguns clique, para começar entra no nosso grupo oficial...</p>
-        <button id="btnGrupoVIP" class="botao-destaque pulse" onclick="startCountdown()">👥 Entrar no Grupo VIP</button>
-        <p id="countdownText">Você precisa entrar no grupo para liberar o seu acesso: <span id="counter">10</span>s</p>
-        <button id="btnContinuar" class="botao-destaque" disabled>➡️ BAIXAR BOT</button>
-      </article>
-      <article id="etapa2" class="fade-in hidden bloco">
-        <h2>Registro Necessário</h2>
-        <p>Para baixar o BOT AVIATOR, você deve se registrar na plataforma oficial onde o bot funciona...</p>
-        <button id="btnRegistrar" class="botao-destaque" disabled>Registrar Conta Oficial</button>
-        <p id="mensagem" class="hidden">⏳ Aguarde 20 segundos...</p>
-        <button id="btnDownload" class="botao-destaque" disabled>📥 BAIXAR BOT</button>
-      </article>
-    </section>
-    <section class="bento-right">
-      <article id="botPremium" class="fade-in premium hidden bloco">
-        <div class="selo-pro">PRÓ</div>
-        <img src="https://i.postimg.cc/7hY7Q83T/Picsart-25-02-17-16-18-15-030.jpg" alt="Robô Aviator Lucrativo">
-        <h2>💎 ROBÔ AVIATOR LUCRATIVO</h2>
-        <p>Permite hackear o aviator com 100% de acerto,descubra onde o avião vai cair...</p>
-        <p class="preco">Apenas 500Mt via M‑Pesa</p>
-        <button id="copiarBtn" class="botao-destaque hidden" onclick="copiarNumero()">📋 Copiar número de pagamento</button>
-        <p class="msg-copiado" id="copiadoMsg">Número copiado com sucesso ✅</p>
-        <a id="pagarAgoraBtn" class="botao-destaque pulse glow hidden" href="tel:*150%23">💳 PAGAR AGORA (via M‑Pesa)</a>
-        <button id="btnEnviarComprovativo" class="botao-destaque hidden">📤 ENVIAR COMPROVATIVO</button>
-        <p id="msgAguardarWhatsapp" class="hidden">⏳ Aguarde <span id="contadorWhatsapp">20</span>s para falar no WhatsApp...</p>
-        <a id="btnWhatsapp" class="botao-destaque hidden" href="https://wa.me/258863945037?text=Olá,%20estou%20a%20enviar%20o%20comprovativo%20do%20pagamento.%20(Por%20favor%20colar%20aqui%20o%20comprovativo)" target="_blank">💬 FALAR NO WHATSAPP</a>
-      </article>
-    </section>
-  </main>
+<body class="flex items-center justify-center h-screen text-white">
+  <div class="text-center space-y-6 max-w-md px-4">
+    <img src="https://i.postimg.cc/3r1CqFJK/Picsart-25-06-26-16-43-40-453.jpg"
+         alt="Robô Aviator"
+         class="mx-auto w-64 rounded-xl shadow-xl border-4 border-white" />
+    <h1 class="text-4xl font-bold drop-shadow-md">Bem-vindo ao Robô Aviator</h1>
+    <p class="text-lg">Para continuar, entre no nosso Grupo VIP</p>
+    <button onclick="entrarGrupo()" class="pulse bg-green-500 hover:bg-green-600 px-6 py-3 rounded-xl text-xl shadow-lg transition duration-300 ease-in-out transform">
+      Entrar no Grupo VIP
+    </button>
+  </div>
+
   <script>
-    let segundos = 10;
-    let clicouGrupo = false;
-    const btn = document.getElementById("btnContinuar");
-    const cnt = document.getElementById("counter");
-    const progressBar = document.createElement("progress");
-    progressBar.id = "progressBar";
-    progressBar.max = segundos;
-    progressBar.value = segundos;
-    progressBar.style.width = "100%";
-    progressBar.style.marginTop = "1rem";
-    document.getElementById("countdownText").after(progressBar);
-
-    const intervalo = setInterval(() => {
-      segundos--;
-      cnt.textContent = segundos;
-      progressBar.value = segundos;
-      if (segundos <= 0) {
-        clearInterval(intervalo);
-        btn.disabled = false;
-      }
-    }, 1000);
-
-    function startCountdown(){
-      clicouGrupo = true;
-      window.open("https://abre.ai/grupo7-aviator","_blank");
-    }
-
-    btn.addEventListener("click", () => {
-      document.getElementById("etapa1").classList.add("hidden");
-      document.getElementById("etapa2").classList.remove("hidden");
-      const btnReg = document.getElementById("btnRegistrar");
-      btnReg.disabled = false;
-      btnReg.classList.add("pulse");
-    });
-
-    document.getElementById("btnRegistrar").addEventListener("click", () => {
-      const btnReg = document.getElementById("btnRegistrar");
-      const msg = document.getElementById("mensagem");
-      const btnDownload = document.getElementById("btnDownload");
-      window.open("https://www.megagamelive.com/affiliates/?btag=2233419","_blank");
-      btnReg.classList.remove("pulse");
-      msg.classList.remove("hidden");
+    function entrarGrupo() {
+      window.open("https://abre.ai/grupo-vip-de-menbros", "_blank");
       setTimeout(() => {
-        msg.classList.add("hidden");
-        btnDownload.disabled = false;
-        btnDownload.classList.add("pulse");
-      }, 20000);
-    });
-
-    document.getElementById("btnDownload").addEventListener("click", () => {
-      window.open("https://www.mediafire.com/file/i2kiw5qfn5h4jxp/ROB%C3%94_AVIATOR.apk/file","_blank");
-      document.getElementById("botPremium").classList.remove("hidden");
-      document.getElementById("copiarBtn").classList.remove("hidden");
-      document.getElementById("pagarAgoraBtn").classList.remove("hidden");
-    });
-
-    function copiarNumero(){
-      navigator.clipboard.writeText("848750886").then(()=>{
-        const msg = document.getElementById("copiadoMsg");
-        msg.style.display="block";
-        setTimeout(()=> msg.style.display="none", 3000);
-      });
-    }
-
-    document.getElementById("pagarAgoraBtn").addEventListener("click", () => {
-      const pagar = document.getElementById("pagarAgoraBtn");
-      const enviar = document.getElementById("btnEnviarComprovativo");
-      pagar.classList.remove("pulse", "glow");
-      setTimeout(() => {
-        enviar.classList.remove("hidden");
-        enviar.classList.add("pulse");
-      }, 15000);
-    });
-
-    document.getElementById("btnEnviarComprovativo").addEventListener("click", () => {
-      const enviar = document.getElementById("btnEnviarComprovativo");
-      const msgW = document.getElementById("msgAguardarWhatsapp");
-      const contW = document.getElementById("contadorWhatsapp");
-      const btnW = document.getElementById("btnWhatsapp");
-      enviar.classList.add("hidden");
-      let seg = 20;
-      contW.textContent = seg;
-      msgW.classList.remove("hidden");
-      const iv = setInterval(() => {
-        seg--;
-        contW.textContent = seg;
-        if (seg <= 0) {
-          clearInterval(iv);
-          msgW.classList.add("hidden");
-          btnW.classList.remove("hidden");
-          btnW.classList.add("pulse", "glow");
-        }
+        window.location.href = "registro.html";
       }, 1000);
-    });
+    }
   </script>
 </body>
 </html>
